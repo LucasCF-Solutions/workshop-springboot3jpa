@@ -3,6 +3,7 @@ package com.lucas.cursoJavaCompleto1.entities.pk;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lucas.cursoJavaCompleto1.entities.Order;
 import com.lucas.cursoJavaCompleto1.entities.Product;
 
@@ -22,6 +23,7 @@ public class OrderItemPK implements Serializable {
 	@JoinColumn(name = "product_id")
 	private Product product;
 	
+
 	public Order getOrder() {
 		return order;
 	}
