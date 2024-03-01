@@ -7,6 +7,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lucas.cursoJavaCompleto1.entities.enums.OrderStatus;
 
 import jakarta.persistence.Entity;
@@ -86,11 +87,14 @@ public class Order implements Serializable {
 	public void setClient(User client) {
 		this.client = client;
 	}
-
-	public Set<OrderItem> getItems() {
-		return items;
+	
+	public Set<Product> getProducts(){
+		Set<Product> set = new HashSet<>();
+		for(OrderItem x : items) {
+			set.add(x.getProduct());
+		}
+		return set;
 	}
- 	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

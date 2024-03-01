@@ -24,6 +24,7 @@ public class OrderItemPK implements Serializable {
 	private Product product;
 	
 
+	@JsonIgnore
 	public Order getOrder() {
 		return order;
 	}
